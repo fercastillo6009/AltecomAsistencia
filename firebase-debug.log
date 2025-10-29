@@ -1,0 +1,19 @@
+[debug] [2025-10-29T16:33:44.238Z] ----------------------------------------------------------------------
+[debug] [2025-10-29T16:33:44.245Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Fer Castillo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-10-29T16:33:44.246Z] CLI Version:   14.22.0
+[debug] [2025-10-29T16:33:44.247Z] Platform:      win32
+[debug] [2025-10-29T16:33:44.247Z] Node Version:  v22.14.0
+[debug] [2025-10-29T16:33:44.248Z] Time:          Wed Oct 29 2025 10:33:44 GMT-0600 (hora estándar central)
+[debug] [2025-10-29T16:33:44.248Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Fer Castillo\Downloads\altecom_appweb
+
