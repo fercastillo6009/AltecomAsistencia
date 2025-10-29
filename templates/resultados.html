@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen de asistencias</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f7f9fb;
+      padding: 40px;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    .range {
+      text-align: center;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 80%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: center;
+    }
+    th {
+      background: #4CAF50;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    .back-btn {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background: #4CAF50;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Resumen de Asistencias</h2>
+  <div class="range">Del {{ inicio }} al {{ fin }}</div>
+  <table>
+    <tr>
+      <th>Empleado</th>
+      <th>Asistencias</th>
+      <th>Retardos</th>
+      <th>Faltas</th>
+    </tr>
+    {% for r in datos %}
+    <tr>
+      <td>{{ r.nombre }}</td>
+      <td>{{ r.asistencias }}</td>
+      <td>{{ r.retardos }}</td>
+      <td>{{ r.faltas }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="/" class="back-btn">← Nueva consulta</a>
+</body>
+</html>

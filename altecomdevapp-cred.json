@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "altecomdevapp",
+  "private_key_id": "c33594d473f877dfc323c76b3bd0f0351b590823",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCWyfPzW/md1vdg\nYcJzedMXfJLYNrQlO5GhBCDiiSAxvzgVoQlLJjkKWKxsOfflxE+TXxqjJG/YcXy8\nmWJ7JfPGPkk7NqKQ1L0bIjJjLDGCZNMcfauZkUzBWlPOr1HIqiJor2NV2uvPh2aW\n+XmrkwRGlKSQQa8ORjaKewATBC556XTjRYMbOX9nwF35w3ykI5jhRCU89RdFPEGE\nc2DT9A2Zv8UxxdLLKxGqTC5ufZ3KfsuthXq5cfbFJGClOH5bpIo/zauxnZ2GmbST\nPU0ts3lVwq2vAUFKgttKFb0fne469KebfmElfhipGoH96VI7KSwzf/e+oLLTprpi\ne/NEglMjAgMBAAECggEAJmpoGLl3dDN2jZsKV7ITSfoGTUhOh+fPt7ZeDGjEB3iA\neN4wiHFB+fVSZDY2hlaHsXN6zVJ0ni93iHMJaHdoTjrDHG9UZlKUpQuGy8ZQDLjU\nIf+QTsz6QY5aKJ941gcmQgZg59gg2JvV0qPXUBNh9Ptcm5XoW9oefhRNFgssLgmc\njXK3vSSS7o5Yc+EXOVBiAUk32SoB8jyZ3L+kK6fiZoKL1K8O0e22WkU6XIrJOKJF\nqFVTX8eeQqEcJcAo0K8j8J+oDIidm2ob/4jaU1SDOiwHUkSJk+Yn/59bFfdgMN/e\nfbkJlxyYuQL4YLC9SNGzKTfiTtTR5kC/YbyDfhcL4QKBgQDF2dOfBD7yCe5HhWXx\nzm0qn+JPNQsRBdjAtZ5n5xu7zEtRod+dklSOnLaRUOi6Ku04BVH+BxqIjB28wgPZ\n3kY2cGrWVsXeg4UBjLNOywhOB4ictRpmcdPC5urlh9cRB842jNNgJ935FGd1fuY4\nDU1OCOx19brmvajYolDtP7YNgwKBgQDDGzYPe6e3iWQ61dN8hflaNpG9lcAKzDHJ\nLBeV/MBuORsG19VpOPuseWbW+fomIx1KS/vVm8egO9dpY2dyKbrlUdV+ysCnNTEm\ndFhs+fEtPgge4NXQqqT2RpzaEmJZXd2hH5ozxwvgHC68/JlqVERj4f2+73MLeiwh\nY3/sjL5R4QKBgB3/vj+hNC4c5V1A08lLRHAvF/BsmYX2PfxSTXdxqlnaSx1Qjwhk\nVJ/fESuNegwoUBmrbNg4mYRUwnmJbW4ObtT4TKq9M3letb8bZ2CuFk9GgydHqn4Y\nCkTGIJ228Bwr889/oNk2kkifGGTPXfbnxW3smnX0UWeFIGHgkqa2f1MjAoGBAJ7O\np1Iy9HEQA+Vf5qSU6EHl6PrHyWkAjAWTPh93e6o8ESOgyrS7DR92MZ8KGfKw4kZ3\nUqSsB/EExHGj16+1B8tgsMZjgiyXv0ntqYwKZaTNuQ5pM6CFRYCwOTvHewYCwUNE\n1d8PRTtFtUVe1gEWVhR2/nNLs/jDmOgUdSu147QBAoGAOzX1KDrwJTDf7v6bExRg\nrxveQNXS+FRRz6ryItbPjQ46jfrqX8mZ5Z9wJ7dDWUJTBPvLb/RGAhqe9n739a76\n+APQmXE6pJSmd16oqH5wJHJdzQFmlvVjzAZJfYY7XXoDJSXSsllwQ+EqZG1148Fy\nky94SIuk96WnLvhABRdhXho=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@altecomdevapp.iam.gserviceaccount.com",
+  "client_id": "113673961463464236818",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40altecomdevapp.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
