@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from datetime import datetime, timedelta
 import os, json
 import firebase_admin
@@ -9,7 +9,6 @@ from firebase_admin import credentials, firestore
 app = Flask(__name__)
 
 # 🔹 Cargar credenciales de Firebase desde variable de entorno
-# Render permite definir variables de entorno en Settings → Environment
 cred_data = json.loads(os.environ["FIREBASE_CREDENTIALS"])
 cred = credentials.Certificate(cred_data)
 firebase_admin.initialize_app(cred)
@@ -46,10 +45,13 @@ def resumen_empleado(uid, fechas):
             faltas += 1
     return asistencias, retardos, faltas
 
-# 🔹 Rutas
+
+# ------------------ RUTAS EXISTENTES (WEB) ------------------
+
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 @app.route('/resumen', methods=['POST'])
 def resumen():
@@ -70,7 +72,46 @@ def resumen():
     return render_template('resultado.html', datos=resultados,
                            inicio=request.form['inicio'], fin=request.form['fin'])
 
-# 🔹 Ejecutar localmente
+
+# ------------------ NUEVA RUTA (API PARA ANDROID) ------------------
+
+@app.route('/api/resumen', methods=['POST'])
+def api_resumen():
+    """
+    Endpoint para app móvil.
+    Espera un JSON con:
+    {
+      "inicio": "YYYY-MM-DD",
+      "fin": "YYYY-MM-DD"
+    }
+    Retorna JSON con el resumen de todos los empleados.
+    """
+    data = request.get_json()
+    if not data or "inicio" not in data or "fin" not in data:
+        return jsonify({"error": "Parámetros 'inicio' y 'fin' requeridos"}), 400
+
+    try:
+        fecha_inicio = datetime.strptime(data["inicio"], "%Y-%m-%d")
+        fecha_fin = datetime.strptime(data["fin"], "%Y-%m-%d")
+    except ValueError:
+        return jsonify({"error": "Formato de fecha inválido"}), 400
+
+    fechas = fechas_entre(fecha_inicio, fecha_fin)
+
+    resultados = []
+    for nombre, uid in empleados.items():
+        asistencias, retardos, faltas = resumen_empleado(uid, fechas)
+        resultados.append({
+            "nombre": nombre,
+            "asistencias": asistencias,
+            "retardos": retardos,
+            "faltas": faltas
+        })
+
+    return jsonify(resultados)
+
+
+# ------------------ EJECUCIÓN ------------------
+
 if __name__ == '__main__':
-    # El puerto 5000 es default, Render define PORT automáticamente
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
