@@ -5,7 +5,8 @@ import os, json
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# Inicializar Flask
+# ------------------ INICIALIZACIÓN ------------------
+
 app = Flask(__name__)
 
 # 🔹 Cargar credenciales de Firebase desde variable de entorno
@@ -14,22 +15,29 @@ cred = credentials.Certificate(cred_data)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-# 🔹 Diccionario de empleados (nombre -> UID)
-empleados = {
-    "Edson Herrera": "kvK4IZNfpGRpKDiwlRgl7JdasNu2",
-    "Mauricio Castañeda": "rOr6WiZuK7QE0ac067EiccvGBWu2",
-    "Luis Balderas": "rfE9ZoOo69guyH2PU3JGRtT5A2h2",
-    "Fer Castillo": "p5b3bNLmmgRlLmnF4yQr4Y1Nmt93",
-    "Jonathan Batres": "y9W9BgBynFOLn16a0u5WIfqm2Pr2"
-}
 
-# 🔹 Función para generar rango de fechas
+# ------------------ FUNCIONES AUXILIARES ------------------
+
+# 🔹 Obtener empleados dinámicamente desde Firestore
+def obtener_empleados():
+    empleados = {}
+    usuarios_ref = db.collection("usuarios").get()
+    for doc in usuarios_ref:
+        data = doc.to_dict()
+        nombre = data.get("nombre")
+        if nombre:
+            empleados[nombre] = doc.id  # Usa el ID del documento como UID
+    return empleados
+
+
+# 🔹 Generar rango de fechas
 def fechas_entre(inicio, fin):
     fechas = []
     while inicio <= fin:
         fechas.append(inicio.strftime("%Y-%m-%d"))
         inicio += timedelta(days=1)
     return fechas
+
 
 # 🔹 Contar asistencias, retardos y faltas
 def resumen_empleado(uid, fechas):
@@ -48,7 +56,7 @@ def resumen_empleado(uid, fechas):
     return asistencias, retardos, faltas
 
 
-# ------------------ RUTAS EXISTENTES (WEB) ------------------
+# ------------------ RUTAS (WEB) ------------------
 
 @app.route('/')
 def home():
@@ -60,6 +68,8 @@ def resumen():
     fecha_inicio = datetime.strptime(request.form['inicio'], "%Y-%m-%d")
     fecha_fin = datetime.strptime(request.form['fin'], "%Y-%m-%d")
     fechas = fechas_entre(fecha_inicio, fecha_fin)
+
+    empleados = obtener_empleados()  # 🔹 Se actualiza automáticamente desde Firestore
 
     resultados = []
     for nombre, uid in empleados.items():
@@ -75,7 +85,7 @@ def resumen():
                            inicio=request.form['inicio'], fin=request.form['fin'])
 
 
-# ------------------ NUEVA RUTA (API PARA ANDROID) ------------------
+# ------------------ RUTA (API PARA ANDROID) ------------------
 
 @app.route('/api/resumen', methods=['POST'])
 def api_resumen():
@@ -99,6 +109,7 @@ def api_resumen():
         return jsonify({"error": "Formato de fecha inválido"}), 400
 
     fechas = fechas_entre(fecha_inicio, fecha_fin)
+    empleados = obtener_empleados()  # 🔹 Se actualiza dinámicamente
 
     resultados = []
     for nombre, uid in empleados.items():
