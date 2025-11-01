@@ -18,8 +18,8 @@ db = firestore.client()
 empleados = {
     "Edson Herrera": "kvK4IZNfpGRpKDiwlRgl7JdasNu2",
     "Mauricio Castañeda": "rOr6WiZuK7QE0ac067EiccvGBWu2",
-    "Luis Balderas": "rfE9ZoOo69guyH2PU3JGRtT5A2h2"
-    "Fer Castillo": "p5b3bNLmmgRlLmnF4yQr4Y1Nmt93"
+    "Luis Balderas": "rfE9ZoOo69guyH2PU3JGRtT5A2h2",
+    "Fer Castillo": "p5b3bNLmmgRlLmnF4yQr4Y1Nmt93",
     "Jonathan Batres": "y9W9BgBynFOLn16a0u5WIfqm2Pr2"
 }
 
