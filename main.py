@@ -16,9 +16,11 @@ db = firestore.client()
 
 # 🔹 Diccionario de empleados (nombre -> UID)
 empleados = {
-    "Edson Fernando Herrera Castillo": "kvK4IZNfpGRpKDiwlRgl7JdasNu2",
-    "Mauro Mauricio Castañeda": "rOr6WiZuK7QE0ac067EiccvGBWu2",
-    "Luis Luisin Carrillo": "rfE9ZoOo69guyH2PU3JGRtT5A2h2"
+    "Edson Herrera": "kvK4IZNfpGRpKDiwlRgl7JdasNu2",
+    "Mauricio Castañeda": "rOr6WiZuK7QE0ac067EiccvGBWu2",
+    "Luis Balderas": "rfE9ZoOo69guyH2PU3JGRtT5A2h2"
+    "Fer Castillo": "p5b3bNLmmgRlLmnF4yQr4Y1Nmt93"
+    "Jonathan Batres": "y9W9BgBynFOLn16a0u5WIfqm2Pr2"
 }
 
 # 🔹 Función para generar rango de fechas
